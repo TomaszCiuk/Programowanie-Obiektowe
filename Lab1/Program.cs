@@ -6,10 +6,10 @@ namespace Lab1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             Ulamek ulamek = new Ulamek();
             Ulamek ulamek2 = new Ulamek();
             Ulamek ulamek3 = ulamek + ulamek2;
+            Console.WriteLine("Test Gita");
         }
     }
     class Ulamek
