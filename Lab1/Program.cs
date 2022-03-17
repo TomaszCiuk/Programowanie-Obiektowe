@@ -116,15 +116,18 @@ namespace Lab1
         }
         public static Ulamek operator ==(Ulamek a, Ulamek b)
         {
-            if (a.licznik == b.licznik && a.mianownik == b.mianownik)
-                return new Ulamek(a.licznik, a.mianownik);
-            else return new Ulamek();
+            if (a.licznik / b.licznik == a.mianownik / b.mianownik)
+                return true;
+            else
+                return false;
+                
         }
         public static Ulamek operator !=(Ulamek a, Ulamek b)
         {
-            if (a.licznik != b.licznik || a.mianownik != b.mianownik)
-                return new Ulamek();
-            else return new Ulamek(a.licznik, a.mianownik);
+            if (a.licznik / b.licznik != a.mianownik / b.mianownik)
+                return true;
+            else
+                return false;
     
         }
         public double roundUp()
