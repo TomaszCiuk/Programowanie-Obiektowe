@@ -130,6 +130,38 @@ namespace Lab1
                 return false;
     
         }
+        public static Ulamek operator >(Ulamek a, Ulamek b)
+        {
+            if (a.licznik / b.licznik > a.mianownik / b.mianownik)
+                return true;
+            else
+                return false;
+    
+        }
+        public static Ulamek operator <(Ulamek a, Ulamek b)
+        {
+            if (a.licznik / b.licznik < a.mianownik / b.mianownik)
+                return true;
+            else
+                return false;
+    
+        }
+        public static Ulamek operator >=(Ulamek a, Ulamek b)
+        {
+            if (a.licznik / b.licznik >= a.mianownik / b.mianownik)
+                return true;
+            else
+                return false;
+    
+        }
+        public static Ulamek operator <=(Ulamek a, Ulamek b)
+        {
+            if (a.licznik / b.licznik <= a.mianownik / b.mianownik)
+                return true;
+            else
+                return false;
+    
+        }
         public double roundUp()
         {
             double num = Convert.ToDouble(licznik)/ Convert.ToDouble(mianownik);
