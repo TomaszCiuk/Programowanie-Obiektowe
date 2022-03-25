@@ -19,9 +19,9 @@ namespace Lab_2_Zadanie
         {
             this.name = name;
         }
-        public string Print()
+        public void Print()
         {
-            return name;
+            Console.WriteLine(name);
         }
     }
     public class Fruit: Product
@@ -32,9 +32,9 @@ namespace Lab_2_Zadanie
         {
             this.count = count;
         }
-        public string Print()
+        public void Print()
         {
-            return name + "(" + count+" fruints)";
+            Console.WriteLine(name + "(" + count+" fruints)");
         }
     }
     public class Meat : Product
@@ -45,9 +45,9 @@ namespace Lab_2_Zadanie
         {
             this.waight = waight;
         }
-        public string Print()
+        public void Print()
         {
-            return name + "(" + waight + " fruints)";
+            Console.WriteLine(name + "(" + waight + " fruints)");
         }
     }
     public class Person
@@ -59,9 +59,9 @@ namespace Lab_2_Zadanie
             this.name = name;
             this.age = age;
         }
-        public string Print()
+        public void Print()
         {
-            return name + " (" + age + " y.o.)";
+            Console.WriteLine(name + " (" + age + " y.o.)");
         }
     }
     public class Buyer : Person
@@ -98,9 +98,9 @@ namespace Lab_2_Zadanie
             this.people = people;
             this.products = products;
         }
-        public string Print()
+        public void Print()
         {
-            return "Shop " + name + people + products;
+            Console.WriteLine ("Shop " + name + people + products);
         }
     }
     class Program
