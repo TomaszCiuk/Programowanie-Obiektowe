@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lab_2_Zadanie
 {
-    interface IThing
+    interface IThing<T>
     {
         string name
         {
@@ -34,10 +34,7 @@ namespace Lab_2_Zadanie
         }
         public void Print()
         {
-            
-
             Console.WriteLine(name + "(" + count+" fruints)");
-            base.Print();
         }
     }
     public class Meat : Product
