@@ -18,15 +18,12 @@ namespace Lab_3.Logger
         public void Dispose()
         {
         }
-
         public void Log(params string[] messages)
         {
-            string time = DateTime.Now.ToString("yyyy - MM - ddTHH:mm: ssZ");
-
             for (int i = 0; i < messages.Length; i++)
             {
 
-                
+                loggers[i].Log();
             }
         }
     }

@@ -14,7 +14,7 @@ namespace Lab_3.Logger
 
         public FileLogger(string path)
         {
-            this.stream = path;
+            this.stream = File.Create(path);
         }
         ~FileLogger()
             {

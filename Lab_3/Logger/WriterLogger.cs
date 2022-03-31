@@ -13,7 +13,7 @@ namespace Lab_3.Logger
 
         public virtual void Log(params string[] messages)
         {
-            string time = DateTime.Now.ToString("yyyy - MM - ddTHH:mm: ssZ");
+            string time = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
 
             for (int i = 0; i < messages.Length; i++)
             {
