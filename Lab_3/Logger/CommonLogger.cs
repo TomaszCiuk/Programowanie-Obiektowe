@@ -10,10 +10,11 @@ namespace Lab_3.Logger
     {
         ILogger[] loggers;
 
-        public CommonLogger (ILogger loggers)
+        public CommonLogger(ILogger[] loggers)
         {
             this.loggers = loggers;
         }
+
         public void Dispose()
         {
         }
@@ -25,7 +26,7 @@ namespace Lab_3.Logger
             for (int i = 0; i < messages.Length; i++)
             {
 
-                this.loggers[i] = (time + ": " + messages[i] + "\n");
+                
             }
         }
     }

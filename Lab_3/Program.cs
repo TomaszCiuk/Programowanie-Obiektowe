@@ -5,7 +5,7 @@ namespace Lab_3
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             ILogger[] loggers = new ILogger[]
             {
@@ -14,7 +14,8 @@ namespace Lab_3
                 new SocketLogger("google.com", 80)
             };
 
-            loggers[0].Log("Example ")
+            loggers[0].Log("Example message 1 ...");
+            loggers[1].Log("Example message 1 ...");
 
             using (ILogger logger = new CommonLogger(loggers))
             {
