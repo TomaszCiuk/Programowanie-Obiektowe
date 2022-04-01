@@ -20,10 +20,9 @@ namespace Lab_3.Logger
         }
         public void Log(params string[] messages)
         {
-            for (int i = 0; i < messages.Length; i++)
+            for (int i = 0; i < this.loggers.Length; i++)
             {
-
-                loggers[i].Log();
+                this.loggers[i].Log(messages);
             }
         }
     }

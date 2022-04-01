@@ -14,7 +14,8 @@ namespace Lab_3.Logger
 
         public FileLogger(string path)
         {
-            this.stream = File.Create(path);
+            this.stream = new FileStream(path, FileMode.Append);
+            this.writer = new StreamWriter(stream, Encoding.UTF8);
         }
         ~FileLogger()
             {
@@ -22,6 +23,7 @@ namespace Lab_3.Logger
         }
         public override void Dispose()
         {
+            this.writer.Dispose();
             this.stream.Dispose();
         }
     }

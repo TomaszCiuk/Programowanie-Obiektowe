@@ -15,7 +15,7 @@ namespace Lab_3
             };
 
             loggers[0].Log("Example message 1 ...");
-            loggers[1].Log("Example message 1 ...");
+            loggers[1].Log("Example message 2 ...");
 
             using (ILogger logger = new CommonLogger(loggers))
             {

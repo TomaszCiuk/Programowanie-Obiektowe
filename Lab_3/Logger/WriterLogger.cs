@@ -15,11 +15,16 @@ namespace Lab_3.Logger
         {
             string time = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
 
+            this.writer.Write(time + ":");
+
             for (int i = 0; i < messages.Length; i++)
             {
 
-                this.writer.Write(time + ": " + messages[i] + "\n");
+                this.writer.Write(" " + messages[i]);
             }
+
+            this.writer.Write("\n");
+            this.writer.Flush();
         }
 
         public abstract void Dispose();
