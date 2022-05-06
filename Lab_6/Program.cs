@@ -75,7 +75,7 @@ namespace Lab_6
             var countUsers_2 = users.Where(user => user.Marks != null && user.Marks.Length > 0).Select(user => user.Marks.Count()).Sum();
             var sumUsers_2 = users.Where(user => user.Marks != null && user.Marks.Length > 0).Select(user => user.Marks.Sum()).Sum();
             var avgUsers_2 = users.Where(user => user.Marks != null && user.Marks.Length > 0).Select(user => user.Marks.Average()).Average();
-            //Console.WriteLine("Ilosc Ocen: " + countUsers_2 + "\n " + "Suma Ocen: " + sumUsers_2 + "\n " + "Srednia Ocen: " + avgUsers_2);
+            Console.WriteLine("Ilosc Ocen: " + countUsers_2 + "\n " + "Suma Ocen: " + sumUsers_2 + "\n " + "Srednia Ocen: " + avgUsers_2);
 
             //8. --------- Najlepsza ocena ---------
             var bestMark_1 = (from user in users where user.Marks != null && user.Marks.Length > 0 orderby user.Marks.Max() descending select user.Marks.Max());
@@ -135,9 +135,9 @@ namespace Lab_6
             //Console.WriteLine("Średnia ocena wszystkich studentów to: " + avgAllStudentMarks_2);
 
             //16. --------- Lista użytkowników pogrupowanych po miesiącach daty utworzenia (np. 2022-02,2022-03,2022-04, itp.) ---------
-            //var userCreateDateSortedList_1 = (from User user in users orderby user.CreatedAt group user by user.CreatedAt.Month);
-            //var userCreateDateSortedList_2 = users.GroupBy(user => user.CreatedAt.Month).OrderByDescending(user => -user.Key);
-            //foreach (var group in userCreateDateSortedList_1)
+            var userCreateDateSortedList_1 = (from user in users orderby user.CreatedAt group user by user.CreatedAt);
+            var userCreateDateSortedList_2 = users.GroupBy(user => user.CreatedAt).OrderByDescending(user => user.Key);
+            //foreach (var group in userCreateDateSortedList_2)
             //{
             //    Console.WriteLine(group.Key.ToString());
             //    foreach (var user in group)
