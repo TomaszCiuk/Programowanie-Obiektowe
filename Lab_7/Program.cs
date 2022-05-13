@@ -9,7 +9,7 @@ namespace Lab_7
         static void Main(string[] args)
         {
 
-            string connectionString = @"Data Source=PK1-21-T\SQLEXPRESS;Initial Catalog=projectdb;Integrated Security=True";
+            string connectionString = @"Data Source=PK1-21-T;Initial Catalog=projectdb;Integrated Security=True;";
 
             using (DataContext dataContext = new DataContext(connectionString))
             {
