@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 
 namespace Lab_8
@@ -55,29 +56,101 @@ namespace Lab_8
 			//Console.WriteLine("Stopped");
 
 			HashSet<int> primeNumbers = new HashSet<int>();
-			bool looped = true;
 			Thread thread1 = new Thread(() =>
             {
-				Console.WriteLine("Started");
-
-				for (int i = 1; looped; ++i)
+				Stopwatch stopWatch = Stopwatch.StartNew();
+				for (int i = 0; i <= 50000; ++i)
 				{
-					if (IsPrime(i) == true)
-                    {
-						primeNumbers.Add(i);
-						Console.WriteLine("Iteration: " + i);
-
+					if (stopWatch.ElapsedMilliseconds > 10000)
+					{
+						stopWatch.Stop();
+						break;
 					}
+					if (IsPrimeNumber(i))
+					{
+						lock (primeNumbers)
+						{
+							primeNumbers.Add(i);
+						}
+					}
+					Thread.Yield();
 				}
-
-				Console.WriteLine("Stopping");
+			});
+			Thread thread2 = new Thread(() =>
+			{
+				Stopwatch stopWatch = Stopwatch.StartNew();
+				for (int i = 50000; i <= 100000; ++i)
+				{
+					if (stopWatch.ElapsedMilliseconds > 10000)
+					{
+						stopWatch.Stop();
+						break;
+					}
+					if (IsPrimeNumber(i))
+					{
+						lock (primeNumbers)
+						{
+							primeNumbers.Add(i);
+						}
+					}
+					Thread.Yield();
+				}
+			});
+			Thread thread3 = new Thread(() =>
+			{
+				Stopwatch stopWatch = Stopwatch.StartNew();
+				for (int i = 10000; i <= 150000; ++i)
+				{
+					if (stopWatch.ElapsedMilliseconds > 10000)
+					{
+						stopWatch.Stop();
+						break;
+					}
+					if (IsPrimeNumber(i))
+					{
+						lock (primeNumbers)
+						{
+							primeNumbers.Add(i);
+						}
+					}
+					Thread.Yield();
+				}
+			});
+			Thread thread4 = new Thread(() =>
+			{
+				Stopwatch stopWatch = Stopwatch.StartNew();
+				for (int i = 0; i <= 200000; ++i)
+				{
+					if (stopWatch.ElapsedMilliseconds > 10000)
+					{
+						stopWatch.Stop();
+						break;
+					}
+					if (IsPrimeNumber(i))
+					{
+						lock (primeNumbers)
+						{
+							primeNumbers.Add(i);
+						}
+					}
+					Thread.Yield();
+				}
 			});
 			thread1.Start();
-			Thread.Sleep(10000);
-			looped = false;
+			thread2.Start();
+			thread3.Start();
+			thread4.Start();
+
 			thread1.Join();
+			thread2.Join();
+			thread3.Join();
+			thread4.Join();
+
+			Console.WriteLine($"Ilość liczb pierwszych:  {primeNumbers.Count}");
+
+
 		}
-		public static bool IsPrime(int number)
+		public static bool IsPrimeNumber(int number)
 		{
 			if (number <= 1) return false;
 			if (number == 2) return true;
