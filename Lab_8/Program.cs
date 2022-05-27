@@ -119,7 +119,7 @@ namespace Lab_8
 			Thread thread4 = new Thread(() =>
 			{
 				Stopwatch stopWatch = Stopwatch.StartNew();
-				for (int i = 0; i <= 200000; ++i)
+				for (int i = 150000; i <= 200000;)
 				{
 					if (stopWatch.ElapsedMilliseconds > 10000)
 					{
